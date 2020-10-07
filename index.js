@@ -1,7 +1,7 @@
-const Airport = require('./airport'),
-    Plane = require('./plane'),
-    Person = require('./person'),
-    Bag = require('./bag');
+const Airport = require('./classes/airport'),
+    Plane = require('./classes/plane'),
+    Passenger = require('./classes/passenger'),
+    Bag = require('./classes/bag');
 
 
 const LBA = new Airport('LBA'),
@@ -11,8 +11,8 @@ const LBA = new Airport('LBA'),
     plane1 = new Plane('XL24'),
     plane2 = new Plane('BTR100'),
     plane3 = new Plane('Victory')
-    frodo = new Person('Frodo'),
-    greg = new Person('Greg'),
+    frodo = new Passenger('Frodo'),
+    greg = new Passenger('Greg'),
     frodosBag = new Bag(34);
     
 
