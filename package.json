@@ -1,0 +1,23 @@
+{
+  "name": "airport-project",
+  "version": "1.0.0",
+  "description": "Bootcamp W1 D3",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RachaelSmethills/Airport-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RachaelSmethills/Airport-Project/issues"
+  },
+  "homepage": "https://github.com/RachaelSmethills/Airport-Project#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.5.2"
+  }
+}
