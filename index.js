@@ -4,20 +4,25 @@ const Airport = require('./airport'),
     Bag = require('./bag');
 
 
-const airpot = new Airport('Leeds Bradford Airport'),
+const LBA = new Airport('LBA'),
+    LAX = new Airport('LAX'),
+    CDG = new Airport('CDG'),
+    LHR = new Airport('LHR'),
     plane1 = new Plane('XL24'),
     plane2 = new Plane('BTR100'),
+    plane3 = new Plane('Victory')
     frodo = new Person('Frodo'),
     greg = new Person('Greg'),
     frodosBag = new Bag(34);
+    
 
 frodo.addBags(frodosBag);
 plane1.boardPassengers(frodo, greg);
-airpot.addPlanes(plane1, plane2);
+LBA.addPlanes(plane1, plane2);
 
-console.log(airpot.name);
+console.log(LBA.name);
 
-airpot.planes.map(plane => {
+LBA.planes.map(plane => {
     console.log(`Checking plane ${plane.name}`);
     plane.passengers.map(passenger => {
         console.log(`checking bags of ${passenger.name}`);
@@ -28,4 +33,4 @@ airpot.planes.map(plane => {
 
 });
 
-module.exports = airpot;
+module.exports = LBA;

@@ -1,10 +1,10 @@
 class Plane {
 
-    passengers = [];
-    destination = '';
-
-    constructor(name) {
+    constructor(name, destination = '') {
         this.name = name;
+        this.passengers = [];
+        this.destination = destination;
+        this.location = '';
     }
 
     boardPassengers(...passengers) {
