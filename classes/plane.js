@@ -1,7 +1,6 @@
 const passenger = require('./passenger'),
       crew = require('./crew');
       
-
 class Plane {
 
     constructor(name, destination = '') {
@@ -18,7 +17,7 @@ class Plane {
                 this.passengers.push(x)
             }
             if (x instanceof crew) {
-                x.plane = this.name;
+                x.plane = this.name; // set the crew members plane to this one once boarded
                 this.crew.push(x)
             }
            

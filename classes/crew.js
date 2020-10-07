@@ -1,6 +1,7 @@
 const Person = require('./person')
 
 class Crew extends Person {
+    // static array for all created crew members to be pushed to
     static crew = [];
 
     constructor(name) {
@@ -11,9 +12,10 @@ class Crew extends Person {
     }
 
     crossCheck() {
+        // access the static crew list of all created members
         return Crew.crew
-            .filter(x=> x.plane == this.plane)
-            .every(x => {
+            .filter(x=> x.plane == this.plane) // filter members based on current members plane
+            .every(x => { // for every crew member on the plane - confirm they are of type Crew.
                 console.log(`${x.name} is on plane ${x.plane}`);
                 return this instanceof Crew}
             );
