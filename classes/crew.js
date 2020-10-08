@@ -5,7 +5,7 @@ class Crew extends Person {
     static crew = [];
 
     constructor(name) {
-        super(name);
+        super(name); // calls the constructor of the extended class 
         this.plane = '';
 
         this.constructor.crew.push(this);
