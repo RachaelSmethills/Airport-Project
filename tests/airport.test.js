@@ -24,16 +24,22 @@ describe('Airport', () => {
         });
     });
 
-    test('airports have a city', () => {
+    // test('airports have a city', () => {
+    //     const CDG = new Airport('CDG')
+    //     return CDG.getInfo()
+    //         .then(info => {
+    //             expect(info.city).toEqual('Paris')
+    //         })
+    //         .catch(err => {
+    //             expect(err).toBeNull()
+    //         })
+    // })
+
+    test('get city from airport info', async() => {
         const CDG = new Airport('CDG')
-        return CDG.getInfo()
-            .then(info => {
-                expect(info.city).toEqual('Paris')
-            })
-            .catch(err => {
-                expect(err).toBeNull()
-            })
-    })
+        const airport = await CDG.getInfo();
+        expect(airport.city).toEqual('Paris')
+    });
 
     test('has assigned name', () => {
         expect(airport.name).toEqual('Leeds Bradford Airport')
