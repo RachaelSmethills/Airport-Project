@@ -24,23 +24,6 @@ describe('Airport', () => {
         });
     });
 
-    // test('airports have a city', () => {
-    //     const CDG = new Airport('CDG')
-    //     return CDG.getInfo()
-    //         .then(info => {
-    //             expect(info.city).toEqual('Paris')
-    //         })
-    //         .catch(err => {
-    //             expect(err).toBeNull()
-    //         })
-    // })
-
-    test('get city from airport info', async() => {
-        const CDG = new Airport('CDG')
-        const airport = await CDG.getInfo();
-        expect(airport.city).toEqual('Paris')
-    });
-
     test('has assigned name', () => {
         expect(airport.name).toEqual('Leeds Bradford Airport')
     });
@@ -64,6 +47,38 @@ describe('Airport', () => {
             expect(Airport.airports.indexOf(airport) > -1).toEqual(true)
         });
     });
+
+    describe(' - async tests', () => {
+
+        // Run the test async to get the result
+        /*
+            The test is declared as async
+            The value of the method is assigned through await (boxing / unboxing)
+            The value is checked as normal
+        */
+        test('get city from airport info', async() => {
+            const CDG = new Airport('CDG')
+            const airport = await CDG.getInfo();
+            expect(airport.city).toEqual('Paris')
+        });
+
+        // Alternative async test
+        /*
+            Test is declared as normal
+            Async function is called and the result is Chained with the .then function that receives the result of the call
+            .Catch will catch any error bubbled up from the promise
+        */
+        test(' Alternative async test - get city from airport info', () => {
+            const CDG = new Airport('CDG')
+            return CDG.getInfo()
+                .then(info => {
+                    expect(info.city).toEqual('Paris')
+                })
+                .catch(err => {
+                    expect(err).toBeNull()
+                })
+        })
+    })
 
     describe('TakeOff', () => { 
         test('will error if plane is not at airport', () => {

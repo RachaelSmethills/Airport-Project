@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require("path");
+const fsp = require('fs/promises'),
+    path = require("path");
 
 class Airport {
     static airports = [];
@@ -7,7 +7,7 @@ class Airport {
     constructor(name) {
         this.name = name;
         this.planes = [];
-        this.constructor.airports.push(this);
+        this.constructor.airports.push(this); // All instances of an airport at stored in the airports array.
     }
 
     takeOff(plane) {
@@ -21,6 +21,8 @@ class Airport {
         destination.addPlanes(plane);
     }
 
+    // Add plane(s) to the planes array - spread operator allows any number of undeclared variables to be passed
+    // ** Much better than trying to handle two functions or evaluating the number of objects passed
     addPlanes(...planes) {
         planes.map(plane => { 
             plane.location = this.name;
@@ -28,19 +30,18 @@ class Airport {
         });
     }
 
-    getInfo() {
-        return new Promise((resolve, reject) => {
-            fs.readFile(path.resolve(__dirname, '../airports.json'), (err, data) => {
-                if (err) return reject(err)
-                
-                const airports = JSON.parse(String(data))
-                const [airport] = Object.keys(airports)
-                    .filter(airportCode => airports[airportCode].iata === this.name)
-                    .map(airportCode => airports[airportCode])
-                
-                resolve(airport)
-            })
-        })
+    /// Read file data async - no need to wrap in a new promise as it supports it already 
+    /// see: https://stackoverflow.com/questions/34628305/using-promises-with-fs-readfile-in-a-loop
+
+    async getInfo() {
+        const data = await fsp.readFile(path.resolve(__dirname, '../airports.json'));
+        const airports = JSON.parse(String(data));
+        const [airport] = Object
+            .keys(airports)
+            .filter(airportCode => airports[airportCode].iata === this.name)
+            .map(airportCode => airports[airportCode]);
+
+        return airport;
     }
 }
 
