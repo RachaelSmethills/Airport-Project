@@ -1,5 +1,5 @@
-const Crew = require('../classes/crew'),
- Plane = require('../classes/plane');
+const Crew = require('./crew'),
+ Plane = require('../plane/plane');
 
 describe('Crew', () => {
     const plane = new Plane('XGP'),

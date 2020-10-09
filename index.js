@@ -1,7 +1,7 @@
-const Airport = require('./classes/airport'),
-    Plane = require('./classes/plane'),
-    Passenger = require('./classes/passenger'),
-    Bag = require('./classes/bag');
+const Airport = require('./modules/airport/airport'),
+    Plane = require('./modules/plane/plane'),
+    Passenger = require('./modules/people/passenger'),
+    Bag = require('./modules/bag/bag');
 
 
 const LBA = new Airport('LBA'),

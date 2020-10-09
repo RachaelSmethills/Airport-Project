@@ -1,5 +1,5 @@
 
-const Passenger = require('../classes/passenger');
+const Passenger = require('./passenger');
 
 describe('Passenger', () => {
     const rachael = new Passenger('Rachael');

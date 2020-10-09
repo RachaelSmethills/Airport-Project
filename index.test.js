@@ -1,5 +1,5 @@
 
-const airpot = require('../index');
+const airpot = require('./index');
 
 describe('Can access bag weight from data', () => {
 

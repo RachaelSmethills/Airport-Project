@@ -1,4 +1,4 @@
-const Bag = require('../classes/bag');
+const Bag = require('./bag');
 
 describe('Bag', () => {
 

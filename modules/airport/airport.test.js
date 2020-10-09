@@ -1,9 +1,7 @@
-const airport = require('..');
-const { airports } = require('../classes/airport');
-const Airport = require('../classes/airport'),
-    Plane = require('../classes/plane'),
-    Person = require('../classes/person'),
-    Bag = require('../classes/bag');
+const Airport = require('./airport'),
+    Plane = require('../plane/plane'),
+    Person = require('../people/person'),
+    Bag = require('../bag/bag');
 
 describe('Airport', () => {
 

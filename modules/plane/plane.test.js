@@ -1,5 +1,5 @@
-const Passenger = require('../classes/passenger');
-const Plane = require('../classes/plane');
+const Passenger = require('../people/passenger');
+const Plane = require('./plane');
 
 describe('Plane', () => {
     const plane = new Plane('XGP');

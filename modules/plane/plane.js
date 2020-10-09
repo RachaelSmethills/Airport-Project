@@ -1,5 +1,5 @@
-const passenger = require('./passenger'),
-      crew = require('./crew');
+const passenger = require('../people/passenger'),
+      crew = require('../people/crew');
       
 class Plane {
 

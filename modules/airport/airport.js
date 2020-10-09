@@ -34,7 +34,7 @@ class Airport {
     /// see: https://stackoverflow.com/questions/34628305/using-promises-with-fs-readfile-in-a-loop
 
     async getInfo() {
-        const data = await fsp.readFile(path.resolve(__dirname, '../airports.json'));
+        const data = await fsp.readFile(path.resolve(__dirname, '../../airports.json'));
         const airports = JSON.parse(String(data));
         const [airport] = Object
             .keys(airports)
