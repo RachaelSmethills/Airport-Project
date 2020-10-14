@@ -2,7 +2,8 @@ const Airport = require('./modules/airport/airport'),
     Plane = require('./modules/plane/plane'),
     Passenger = require('./modules/people/passenger'),
     Bag = require('./modules/bag/bag');
-
+const DatabaseLoader = require('./modules/database/load');
+const airports = require('./airports.json');
 
 const LBA = new Airport('LBA'),
     LAX = new Airport('LAX'),
@@ -31,6 +32,32 @@ LBA.planes.map(plane => {
         })
     })
 
+});
+
+const dbLoader = new DatabaseLoader();
+
+new Promise((res, rej) => { 
+    dbLoader.db.run(`
+        CREATE TABLE IF NOT EXISTS airports(
+            id INTEGER PRIMARY KEY,
+            icao TEXT NULL,
+            iata TEXT NULL,
+            name TEXT NOT NULL,
+            city TEXT NULL,
+            state TEXT NULL,
+            country TEXT NULL,
+            elevation INTEGER NULL,
+            lat DECIMAL NULL,
+            lon DECIMAL NULL,
+            tz TEXT NULL
+        );`, (error) => {
+            console.log('Execution complete', error);
+            res();
+    });
+}).then(() =>{
+    console.log('Running insert');
+    const recordKeys = Object.keys(airports);
+    dbLoader.load('airports', recordKeys.map(x => airports[x]), () => console.log('All records added'))
 });
 
 module.exports = LBA;

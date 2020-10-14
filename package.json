@@ -4,7 +4,8 @@
   "description": "Bootcamp W1 D3",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --watchAll"
+    "test": "jest --coverage --watchAll",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,9 @@
     "url": "https://github.com/RachaelSmethills/Airport-Project/issues"
   },
   "homepage": "https://github.com/RachaelSmethills/Airport-Project#readme",
-  "dependencies": {},
+  "dependencies": {
+    "sqlite3": "^5.0.0"
+  },
   "devDependencies": {
     "jest": "^26.5.2"
   }
